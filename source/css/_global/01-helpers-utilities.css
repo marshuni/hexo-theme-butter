@@ -1,0 +1,458 @@
+/* Shared helpers, transitions, and early keyframes | lines 181-1637 */
+.limit-one-line,
+.container .flink .flink-item-name,
+.container .flink .flink-item-desc,
+#aside-content .card-archives ul.card-archive-list > .card-archive-list-item a span,
+#aside-content .card-categories ul.card-category-list > .card-category-list-item a span,
+.site-data > a .headline,
+#nav #blog-info,
+#sidebar #sidebar-menus .menus_items .site-page {
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.limit-more-line,
+.article-sort-item-title,
+#recent-posts .recent-post-item >.recent-post-info > .article-title,
+#recent-posts .recent-post-item >.recent-post-info > .content,
+#aside-content .aside-list > .aside-list-item .content > .name,
+#aside-content .aside-list > .aside-list-item .content > .title,
+#aside-content .aside-list > .aside-list-item .content > .comment,
+#page-header #site-title,
+#post-info .post-title,
+.pagination-related .info .info-1 .info-item-2,
+.pagination-related .info .info-2 .info-item-1,
+.container figure.gallery-group p,
+.container figure.gallery-group .gallery-group-name {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+}
+.fontawesomeIcon,
+.custom-hr:before,
+#post .post-copyright:before,
+.toggle > .toggle-button::before,
+.note:not(.no-icon)::before,
+.search-dialog hr:before {
+  display: inline-block;
+  font-weight: 600;
+  font-family: 'Font Awesome 7 Free', 'Font Awesome 6 Free';
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+.cardHover,
+.layout > div:first-child:not(.nc),
+#recent-posts .recent-post-item,
+#article-container .shuoshuo-item,
+#aside-content .card-widget,
+.layout .pagination > *:not(.space) {
+  background: var(--card-bg);
+  -webkit-box-shadow: var(--card-box-shadow);
+  box-shadow: var(--card-box-shadow);
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  transition: all 0.3s;
+  border-radius: 8px;
+}
+.cardHover:hover,
+.layout > div:first-child:not(.nc):hover,
+#recent-posts .recent-post-item:hover,
+#article-container .shuoshuo-item:hover,
+#aside-content .card-widget:hover,
+.layout .pagination > *:not(.space):hover {
+  -webkit-box-shadow: var(--card-hover-box-shadow);
+  box-shadow: var(--card-hover-box-shadow);
+}
+.imgHover,
+.article-sort-item-img :first-child,
+#recent-posts .recent-post-item .post_cover .post-bg,
+#aside-content .aside-list > .aside-list-item .thumbnail :first-child {
+  width: 100%;
+  height: 100%;
+  -webkit-transition: filter 375ms ease-in 0.2s, -webkit-transform 0.6s;
+  -moz-transition: filter 375ms ease-in 0.2s, -moz-transform 0.6s;
+  -o-transition: filter 375ms ease-in 0.2s, -o-transform 0.6s;
+  -ms-transition: filter 375ms ease-in 0.2s, -ms-transform 0.6s;
+  transition: filter 375ms ease-in 0.2s, transform 0.6s;
+  object-fit: cover;
+}
+.imgHover:hover,
+.article-sort-item-img :first-child:hover,
+#recent-posts .recent-post-item .post_cover .post-bg:hover,
+#aside-content .aside-list > .aside-list-item .thumbnail :first-child:hover {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.postImgHover:hover .cover,
+.pagination-related:hover .cover {
+  opacity: 0.5;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+  filter: alpha(opacity=50);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.postImgHover .cover,
+.pagination-related .cover {
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=40)";
+  filter: alpha(opacity=40);
+  -webkit-transition: all 0.6s, filter 375ms ease-in 0.2s;
+  -moz-transition: all 0.6s, filter 375ms ease-in 0.2s;
+  -o-transition: all 0.6s, filter 375ms ease-in 0.2s;
+  -ms-transition: all 0.6s, filter 375ms ease-in 0.2s;
+  transition: all 0.6s, filter 375ms ease-in 0.2s;
+  object-fit: cover;
+}
+.list-beauty,
+.category-lists ul {
+  list-style: none;
+}
+.list-beauty li,
+.category-lists ul li {
+  position: relative;
+  padding: 0.12em 0.4em 0.12em 1.4em;
+}
+.list-beauty li:hover:before,
+.category-lists ul li:hover:before {
+  border-color: var(--pseudo-hover);
+}
+.list-beauty li:before,
+.category-lists ul li:before {
+  position: absolute;
+  top: 0.67em;
+  left: 0;
+  width: 0.43em;
+  height: 0.43em;
+  border: 0.215em solid #228ec3;
+  border-radius: 0.43em;
+  background: transparent;
+  content: '';
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+.custom-hr,
+.search-dialog hr {
+  position: relative;
+  margin: 40px auto;
+  border: 2px dashed var(--hr-border);
+  width: calc(100% - 4px);
+}
+.custom-hr:hover:before,
+.search-dialog hr:hover:before {
+  left: calc(95% - 20px);
+}
+.custom-hr:before,
+.search-dialog hr:before {
+  position: absolute;
+  top: -10px;
+  left: 5%;
+  z-index: 1;
+  color: var(--hr-before-color);
+  content: '\f0c4';
+  font-size: 20px;
+  line-height: 1;
+  -webkit-transition: all 1s ease-in-out;
+  -moz-transition: all 1s ease-in-out;
+  -o-transition: all 1s ease-in-out;
+  -ms-transition: all 1s ease-in-out;
+  transition: all 1s ease-in-out;
+}
+.verticalCenter,
+.pagination-related .info .info-1,
+.pagination-related .info .info-2 {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  -o-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+}
+#content-inner,
+#footer {
+  -webkit-animation: bottom-top 1s;
+  -moz-animation: bottom-top 1s;
+  -o-animation: bottom-top 1s;
+  -ms-animation: bottom-top 1s;
+  animation: bottom-top 1s;
+}
+#page-header:not(.full_page),
+#nav.show {
+  -webkit-animation: header-effect 1s;
+  -moz-animation: header-effect 1s;
+  -o-animation: header-effect 1s;
+  -ms-animation: header-effect 1s;
+  animation: header-effect 1s;
+}
+#site-title,
+#site-subtitle {
+  -webkit-animation: titleScale 1s;
+  -moz-animation: titleScale 1s;
+  -o-animation: titleScale 1s;
+  -ms-animation: titleScale 1s;
+  animation: titleScale 1s;
+}
+canvas:not(#ribbon-canvas),
+#web_bg.bg-animation {
+  -webkit-animation: to_show 4s;
+  -moz-animation: to_show 4s;
+  -o-animation: to_show 4s;
+  -ms-animation: to_show 4s;
+  animation: to_show 4s;
+}
+#ribbon-canvas {
+  -webkit-animation: ribbon_to_show 4s;
+  -moz-animation: ribbon_to_show 4s;
+  -o-animation: ribbon_to_show 4s;
+  -ms-animation: ribbon_to_show 4s;
+  animation: ribbon_to_show 4s;
+}
+#sidebar-menus.open > :nth-child(1) {
+  -webkit-animation: sidebarItem 0.2s;
+  -moz-animation: sidebarItem 0.2s;
+  -o-animation: sidebarItem 0.2s;
+  -ms-animation: sidebarItem 0.2s;
+  animation: sidebarItem 0.2s;
+}
+#sidebar-menus.open > :nth-child(2) {
+  -webkit-animation: sidebarItem 0.4s;
+  -moz-animation: sidebarItem 0.4s;
+  -o-animation: sidebarItem 0.4s;
+  -ms-animation: sidebarItem 0.4s;
+  animation: sidebarItem 0.4s;
+}
+#sidebar-menus.open > :nth-child(3) {
+  -webkit-animation: sidebarItem 0.6s;
+  -moz-animation: sidebarItem 0.6s;
+  -o-animation: sidebarItem 0.6s;
+  -ms-animation: sidebarItem 0.6s;
+  animation: sidebarItem 0.6s;
+}
+#sidebar-menus.open > :nth-child(4) {
+  -webkit-animation: sidebarItem 0.8s;
+  -moz-animation: sidebarItem 0.8s;
+  -o-animation: sidebarItem 0.8s;
+  -ms-animation: sidebarItem 0.8s;
+  animation: sidebarItem 0.8s;
+}
+.scroll-down-effects {
+  -webkit-animation: scroll-down-effect 1.5s infinite;
+  -moz-animation: scroll-down-effect 1.5s infinite;
+  -o-animation: scroll-down-effect 1.5s infinite;
+  -ms-animation: scroll-down-effect 1.5s infinite;
+  animation: scroll-down-effect 1.5s infinite;
+}
+.reward-main {
+  -webkit-animation: donate_effcet 0.3s 0.1s ease both;
+  -moz-animation: donate_effcet 0.3s 0.1s ease both;
+  -o-animation: donate_effcet 0.3s 0.1s ease both;
+  -ms-animation: donate_effcet 0.3s 0.1s ease both;
+  animation: donate_effcet 0.3s 0.1s ease both;
+}
+.btn-effects,
+.shuoshuo-navigation button:not(:disabled),
+#aside-content .card-info #card-info-btn,
+.post-reward .reward-button,
+#rightside > div > button,
+#rightside > div > a,
+.container .btn-beautify,
+.hide-inline > .hide-button,
+.hide-block > .hide-button,
+.read-mode .exit-readmode {
+  position: relative;
+  overflow: hidden;
+  -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  -moz-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  -o-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  -ms-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+.btn-effects:hover,
+.shuoshuo-navigation button:not(:disabled):hover,
+#aside-content .card-info #card-info-btn:hover,
+.post-reward .reward-button:hover,
+#rightside > div > button:hover,
+#rightside > div > a:hover,
+.container .btn-beautify:hover,
+.hide-inline > .hide-button:hover,
+.hide-block > .hide-button:hover,
+.read-mode .exit-readmode:hover {
+  -webkit-box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  text-decoration: none;
+  -webkit-transform: translateY(-1px) scale(1.02);
+  -moz-transform: translateY(-1px) scale(1.02);
+  -o-transform: translateY(-1px) scale(1.02);
+  -ms-transform: translateY(-1px) scale(1.02);
+  transform: translateY(-1px) scale(1.02);
+}
+.btn-effects:active,
+.shuoshuo-navigation button:not(:disabled):active,
+#aside-content .card-info #card-info-btn:active,
+.post-reward .reward-button:active,
+#rightside > div > button:active,
+#rightside > div > a:active,
+.container .btn-beautify:active,
+.hide-inline > .hide-button:active,
+.hide-block > .hide-button:active,
+.read-mode .exit-readmode:active {
+  -webkit-transition-duration: 0.1s;
+  -moz-transition-duration: 0.1s;
+  -o-transition-duration: 0.1s;
+  -ms-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  -webkit-transform: translateY(0) scale(0.98);
+  -moz-transform: translateY(0) scale(0.98);
+  -o-transform: translateY(0) scale(0.98);
+  -ms-transform: translateY(0) scale(0.98);
+  transform: translateY(0) scale(0.98);
+}
+.btn-effects i,
+.shuoshuo-navigation button:not(:disabled) i,
+#aside-content .card-info #card-info-btn i,
+.post-reward .reward-button i,
+#rightside > div > button i,
+#rightside > div > a i,
+.container .btn-beautify i,
+.hide-inline > .hide-button i,
+.hide-block > .hide-button i,
+.read-mode .exit-readmode i {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  -moz-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  -o-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  -ms-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-effects:hover i,
+.shuoshuo-navigation button:not(:disabled):hover i,
+#aside-content .card-info #card-info-btn:hover i,
+.post-reward .reward-button:hover i,
+#rightside > div > button:hover i,
+#rightside > div > a:hover i,
+.container .btn-beautify:hover i,
+.hide-inline > .hide-button:hover i,
+.hide-block > .hide-button:hover i,
+.read-mode .exit-readmode:hover i {
+  -webkit-animation: buttonIconBounce 0.6s ease-in-out;
+  -moz-animation: buttonIconBounce 0.6s ease-in-out;
+  -o-animation: buttonIconBounce 0.6s ease-in-out;
+  -ms-animation: buttonIconBounce 0.6s ease-in-out;
+  animation: buttonIconBounce 0.6s ease-in-out;
+}
+.btn-effects i + span,
+.shuoshuo-navigation button:not(:disabled) i + span,
+#aside-content .card-info #card-info-btn i + span,
+.post-reward .reward-button i + span,
+#rightside > div > button i + span,
+#rightside > div > a i + span,
+.container .btn-beautify i + span,
+.hide-inline > .hide-button i + span,
+.hide-block > .hide-button i + span,
+.read-mode .exit-readmode i + span {
+  margin-left: 6px;
+  vertical-align: middle;
+  -webkit-transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  -moz-transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  -o-transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  -ms-transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-effects:hover i + span,
+.shuoshuo-navigation button:not(:disabled):hover i + span,
+#aside-content .card-info #card-info-btn:hover i + span,
+.post-reward .reward-button:hover i + span,
+#rightside > div > button:hover i + span,
+#rightside > div > a:hover i + span,
+.container .btn-beautify:hover i + span,
+.hide-inline > .hide-button:hover i + span,
+.hide-block > .hide-button:hover i + span,
+.read-mode .exit-readmode:hover i + span {
+  margin-left: 8px;
+}
+.btn-effects::before,
+.shuoshuo-navigation button:not(:disabled)::before,
+#aside-content .card-info #card-info-btn::before,
+.post-reward .reward-button::before,
+#rightside > div > button::before,
+#rightside > div > a::before,
+.container .btn-beautify::before,
+.hide-inline > .hide-button::before,
+.hide-block > .hide-button::before,
+.read-mode .exit-readmode::before {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background: -webkit-linear-gradient(0deg, transparent, rgba(255,255,255,0.2), transparent);
+  background: -moz-linear-gradient(0deg, transparent, rgba(255,255,255,0.2), transparent);
+  background: -o-linear-gradient(0deg, transparent, rgba(255,255,255,0.2), transparent);
+  background: -ms-linear-gradient(0deg, transparent, rgba(255,255,255,0.2), transparent);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  content: '';
+  -webkit-transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  -moz-transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  -o-transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  -ms-transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-effects:hover::before,
+.shuoshuo-navigation button:not(:disabled):hover::before,
+#aside-content .card-info #card-info-btn:hover::before,
+.post-reward .reward-button:hover::before,
+#rightside > div > button:hover::before,
+#rightside > div > a:hover::before,
+.container .btn-beautify:hover::before,
+.hide-inline > .hide-button:hover::before,
+.hide-block > .hide-button:hover::before,
+.read-mode .exit-readmode:hover::before {
+  left: 100%;
+}
+.btn-effects > *,
+.shuoshuo-navigation button:not(:disabled) > *,
+#aside-content .card-info #card-info-btn > *,
+.post-reward .reward-button > *,
+#rightside > div > button > *,
+#rightside > div > a > *,
+.container .btn-beautify > *,
+.hide-inline > .hide-button > *,
+.hide-block > .hide-button > *,
+.read-mode .exit-readmode > * {
+  position: relative;
+  z-index: 2;
+}
+.btn-effects-large:hover,
+.post-reward .reward-button:hover,
+.container .btn-beautify.larger:hover {
+  -webkit-box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  -webkit-transform: translateY(-2px) scale(1.03);
+  -moz-transform: translateY(-2px) scale(1.03);
+  -o-transform: translateY(-2px) scale(1.03);
+  -ms-transform: translateY(-2px) scale(1.03);
+  transform: translateY(-2px) scale(1.03);
+}
