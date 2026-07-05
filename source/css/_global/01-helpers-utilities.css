@@ -44,7 +44,6 @@
 .cardHover,
 .layout > div:first-child:not(.nc),
 #recent-posts .recent-post-item,
-#article-container .shuoshuo-item,
 #aside-content .card-widget,
 .layout .pagination > *:not(.space) {
   background: var(--card-bg);
@@ -60,7 +59,6 @@
 .cardHover:hover,
 .layout > div:first-child:not(.nc):hover,
 #recent-posts .recent-post-item:hover,
-#article-container .shuoshuo-item:hover,
 #aside-content .card-widget:hover,
 .layout .pagination > *:not(.space):hover {
   -webkit-box-shadow: var(--card-hover-box-shadow);
@@ -266,7 +264,6 @@ canvas:not(#ribbon-canvas),
   animation: donate_effcet 0.3s 0.1s ease both;
 }
 .btn-effects,
-.shuoshuo-navigation button:not(:disabled),
 #aside-content .card-info #card-info-btn,
 .post-reward .reward-button,
 #rightside > div > button,
@@ -289,7 +286,6 @@ canvas:not(#ribbon-canvas),
   transform: translateZ(0);
 }
 .btn-effects:hover,
-.shuoshuo-navigation button:not(:disabled):hover,
 #aside-content .card-info #card-info-btn:hover,
 .post-reward .reward-button:hover,
 #rightside > div > button:hover,
@@ -308,7 +304,6 @@ canvas:not(#ribbon-canvas),
   transform: translateY(-1px) scale(1.02);
 }
 .btn-effects:active,
-.shuoshuo-navigation button:not(:disabled):active,
 #aside-content .card-info #card-info-btn:active,
 .post-reward .reward-button:active,
 #rightside > div > button:active,
@@ -329,7 +324,6 @@ canvas:not(#ribbon-canvas),
   transform: translateY(0) scale(0.98);
 }
 .btn-effects i,
-.shuoshuo-navigation button:not(:disabled) i,
 #aside-content .card-info #card-info-btn i,
 .post-reward .reward-button i,
 #rightside > div > button i,
@@ -347,7 +341,6 @@ canvas:not(#ribbon-canvas),
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-effects:hover i,
-.shuoshuo-navigation button:not(:disabled):hover i,
 #aside-content .card-info #card-info-btn:hover i,
 .post-reward .reward-button:hover i,
 #rightside > div > button:hover i,
@@ -363,7 +356,6 @@ canvas:not(#ribbon-canvas),
   animation: buttonIconBounce 0.6s ease-in-out;
 }
 .btn-effects i + span,
-.shuoshuo-navigation button:not(:disabled) i + span,
 #aside-content .card-info #card-info-btn i + span,
 .post-reward .reward-button i + span,
 #rightside > div > button i + span,
@@ -381,7 +373,6 @@ canvas:not(#ribbon-canvas),
   transition: margin-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-effects:hover i + span,
-.shuoshuo-navigation button:not(:disabled):hover i + span,
 #aside-content .card-info #card-info-btn:hover i + span,
 .post-reward .reward-button:hover i + span,
 #rightside > div > button:hover i + span,
@@ -393,7 +384,6 @@ canvas:not(#ribbon-canvas),
   margin-left: 8px;
 }
 .btn-effects::before,
-.shuoshuo-navigation button:not(:disabled)::before,
 #aside-content .card-info #card-info-btn::before,
 .post-reward .reward-button::before,
 #rightside > div > button::before,
@@ -421,7 +411,6 @@ canvas:not(#ribbon-canvas),
   transition: left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .btn-effects:hover::before,
-.shuoshuo-navigation button:not(:disabled):hover::before,
 #aside-content .card-info #card-info-btn:hover::before,
 .post-reward .reward-button:hover::before,
 #rightside > div > button:hover::before,
@@ -433,7 +422,6 @@ canvas:not(#ribbon-canvas),
   left: 100%;
 }
 .btn-effects > *,
-.shuoshuo-navigation button:not(:disabled) > *,
 #aside-content .card-info #card-info-btn > *,
 .post-reward .reward-button > *,
 #rightside > div > button > *,

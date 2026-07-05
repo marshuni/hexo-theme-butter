@@ -3,7 +3,6 @@
 const { truncateContent, postDesc } = require('../common/postDesc')
 const { prettyUrls } = require('hexo-util')
 const crypto = require('crypto')
-const moment = require('moment-timezone')
 
 const absoluteUrlPattern = /^(?:[a-z][a-z\d+.-]*:)?\/\//i
 const relativeUrlPattern = /^(\.\/|\.\.\/|\/|[^/]+\/).*$/
@@ -130,38 +129,6 @@ hexo.extend.helper.register('getBgPath', function (path) {
   } else {
     return `background: ${path};`
   }
-})
-
-hexo.extend.helper.register('shuoshuoFN', (data, page) => {
-  const { limit } = page
-
-  // Shallow copy to avoid mutating original data
-  let processedData = data.map(item => ({ ...item }))
-
-  // Check if limit.value is a valid date
-  const isValidDate = date => !isNaN(Date.parse(date))
-
-  // order by date
-  processedData.sort((a, b) => Date.parse(b.date) - Date.parse(a.date))
-
-  // Apply number limit or time limit conditionally
-  if (limit && limit.type === 'num' && limit.value > 0) {
-    processedData = processedData.slice(0, limit.value)
-  } else if (limit && limit.type === 'date' && isValidDate(limit.value)) {
-    const limitDate = Date.parse(limit.value)
-    processedData = processedData.filter(item => Date.parse(item.date) >= limitDate)
-  }
-
-  // This is a hack method, because hexo treats time as UTC time
-  // so you need to manually convert the time zone
-  processedData.forEach(item => {
-    const utcDate = moment.utc(item.date).format('YYYY-MM-DD HH:mm:ss')
-    item.date = moment.tz(utcDate, hexo.config.timezone).format('YYYY-MM-DD HH:mm:ss')
-    // markdown
-    item.content = hexo.render.renderSync({ text: item.content, engine: 'markdown' })
-  })
-
-  return processedData
 })
 
 hexo.extend.helper.register('getPageType', (page, isHome) => {
