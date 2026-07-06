@@ -1,0 +1,270 @@
+@use 'sass:map';
+@use '../shared.scss' as shared;
+
+$note-accent-variants: (
+  'blue': (
+    color: var(--tags-blue-color),
+    light: var(--tags-blue-color-lighten),
+  ),
+  'pink': (
+    color: var(--tags-pink-color),
+    light: var(--tags-pink-color-lighten),
+  ),
+  'red': (
+    color: var(--tags-red-color),
+    light: var(--tags-red-color-lighten),
+  ),
+  'purple': (
+    color: var(--tags-purple-color),
+    light: var(--tags-purple-color-lighten),
+  ),
+  'orange': (
+    color: var(--tags-orange-color),
+    light: var(--tags-orange-color-lighten),
+  ),
+  'green': (
+    color: var(--tags-green-color),
+    light: var(--tags-green-color-lighten),
+  ),
+);
+
+$note-standard-variants: (
+  default: (
+    border: var(--note-default-border),
+    bg: var(--note-default-bg),
+    text: var(--note-default-text),
+    modern-border: var(--note-modern-default-border),
+    modern-bg: var(--note-modern-default-bg),
+    modern-text: var(--note-modern-default-text),
+    modern-hover: var(--note-modern-default-hover),
+    flat-bg: var(--note-default-bg),
+    icon: '\f0a9',
+  ),
+  primary: (
+    border: var(--note-primary-border),
+    bg: var(--note-primary-bg),
+    text: var(--note-primary-text),
+    modern-border: var(--note-modern-primary-border),
+    modern-bg: var(--note-modern-primary-bg),
+    modern-text: var(--note-modern-primary-text),
+    modern-hover: var(--note-modern-primary-hover),
+    flat-bg: var(--note-primary-bg),
+    icon: '\f055',
+  ),
+  info: (
+    border: var(--note-info-border),
+    bg: var(--note-info-bg),
+    text: var(--note-info-text),
+    modern-border: var(--note-modern-info-border),
+    modern-bg: var(--note-modern-info-bg),
+    modern-text: var(--note-modern-info-text),
+    modern-hover: var(--note-modern-info-hover),
+    flat-bg: var(--note-info-bg),
+    icon: '\f05a',
+  ),
+  success: (
+    border: var(--note-success-border),
+    bg: var(--note-success-bg),
+    text: var(--note-success-text),
+    modern-border: var(--note-modern-success-border),
+    modern-bg: var(--note-modern-success-bg),
+    modern-text: var(--note-modern-success-text),
+    modern-hover: var(--note-modern-success-hover),
+    flat-bg: var(--note-success-bg),
+    icon: '\f058',
+  ),
+  warning: (
+    border: var(--note-warning-border),
+    bg: var(--note-warning-bg),
+    text: var(--note-warning-text),
+    modern-border: var(--note-modern-warning-border),
+    modern-bg: var(--note-modern-warning-bg),
+    modern-text: var(--note-modern-warning-text),
+    modern-hover: var(--note-modern-warning-hover),
+    flat-bg: var(--note-warning-bg),
+    icon: '\f06a',
+  ),
+  danger: (
+    border: var(--note-danger-border),
+    bg: var(--note-danger-bg),
+    text: var(--note-danger-text),
+    modern-border: var(--note-modern-danger-border),
+    modern-bg: var(--note-modern-danger-bg),
+    modern-text: var(--note-modern-danger-text),
+    modern-hover: var(--note-modern-danger-hover),
+    flat-bg: var(--note-danger-bg),
+    icon: '\f056',
+  ),
+);
+
+@mixin note-accent-variant($name, $config) {
+  $color: map.get($config, color);
+  $light: map.get($config, light);
+
+  &.#{$name} {
+    &:not(.disabled) {
+      border-left-color: $color !important;
+
+      &.modern {
+        border-left-color: transparent !important;
+        color: $color;
+      }
+
+      &:not(.simple) {
+        background: $light;
+      }
+    }
+
+    > .note-icon {
+      color: $color;
+    }
+  }
+}
+
+@mixin note-standard-variant($name, $config) {
+  $border: map.get($config, border);
+  $bg: map.get($config, bg);
+  $text: map.get($config, text);
+  $modern-border: map.get($config, modern-border);
+  $modern-bg: map.get($config, modern-bg);
+  $modern-text: map.get($config, modern-text);
+  $modern-hover: map.get($config, modern-hover);
+  $flat-bg: map.get($config, flat-bg);
+  $icon: map.get($config, icon);
+
+  &.#{$name} {
+    &.flat {
+      background: $flat-bg;
+      color: var(--font-color);
+    }
+
+    &.modern {
+      border-color: $modern-border !important;
+      background: $modern-bg;
+      color: $modern-text;
+
+      a:not(.btn) {
+        color: $modern-text;
+
+        &:hover {
+          color: $modern-hover;
+        }
+      }
+    }
+
+    &:not(.modern) {
+      border-left-color: $border;
+
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        color: $text;
+      }
+    }
+
+    &:not(.no-icon)::before {
+      content: $icon;
+    }
+
+    &:not(.no-icon):not(.modern)::before {
+      color: $text;
+    }
+  }
+}
+
+.note {
+  position: relative;
+  margin: 0 0 20px;
+  padding: 15px;
+  border-radius: 3px;
+
+  &.icon-padding,
+  &:not(.no-icon) {
+    padding-left: 3em;
+  }
+
+  > .note-icon {
+    position: absolute;
+    top: calc(50% - 0.5em);
+    left: 0.8em;
+    font-size: larger;
+  }
+
+  &.simple {
+    border: 1px solid var(--note-default-border);
+    border-left-width: 5px;
+  }
+
+  &.modern {
+    border: 1px solid transparent !important;
+    background-color: var(--note-modern-default-bg);
+    color: var(--note-modern-default-text);
+  }
+
+  &.flat {
+    border: initial;
+    border-left: 5px solid var(--note-default-border);
+    background-color: var(--note-default-bg);
+    color: var(--note-default-text);
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 3px;
+    margin-bottom: 0;
+    padding-top: 0 !important;
+    border-bottom: initial;
+  }
+
+  p:first-child,
+  ul:first-child,
+  ol:first-child,
+  table:first-child,
+  pre:first-child,
+  blockquote:first-child,
+  img:first-child {
+    margin-top: 0 !important;
+  }
+
+  p:last-child,
+  ul:last-child,
+  ol:last-child,
+  table:last-child,
+  pre:last-child,
+  blockquote:last-child,
+  img:last-child {
+    margin-bottom: 0 !important;
+  }
+
+  .img-alt {
+    margin: 5px 0 10px;
+  }
+
+  &:not(.no-icon)::before {
+    @include shared.fontawesome-icon;
+    position: absolute;
+    top: calc(50% - 0.95em);
+    left: 0.8em;
+    font-size: larger;
+  }
+
+  @each $name, $config in $note-accent-variants {
+    @include note-accent-variant($name, $config);
+  }
+
+  @each $name, $config in $note-standard-variants {
+    @include note-standard-variant($name, $config);
+  }
+}
+
+.container {
+  .series-items a:hover {
+    color: var(--pseudo-hover);
+  }
+}
+

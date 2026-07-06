@@ -1,0 +1,68 @@
+.avatar-img {
+  overflow: hidden;
+  margin: 0 auto;
+  width: 110px;
+  height: 110px;
+  border-radius: 70px;
+}
+.avatar-img img {
+  width: 100%;
+  height: 100%;
+  -webkit-transition: filter 375ms ease-in 0.2s, -webkit-transform 0.3s;
+  -moz-transition: filter 375ms ease-in 0.2s, -moz-transform 0.3s;
+  -o-transition: filter 375ms ease-in 0.2s, -o-transform 0.3s;
+  -ms-transition: filter 375ms ease-in 0.2s, -ms-transform 0.3s;
+  transition: filter 375ms ease-in 0.2s, transform 0.3s;
+  object-fit: cover;
+}
+.avatar-img img:hover {
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
+.site-data {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+.site-data > a {
+  display: table-cell;
+}
+.site-data > a div {
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.site-data > a:hover div {
+  color: #228ec3 !important;
+}
+.site-data > a .headline {
+  color: var(--font-color);
+  font-size: 0.95em;
+}
+.site-data > a .length-num {
+  margin-top: -0.45em;
+  color: var(--text-highlight-color);
+  font-size: 1.2em;
+}
+@media screen and (min-width: 900px) {
+  html.hide-aside .layout {
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    -o-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+  }
+  html.hide-aside .layout > .aside-content {
+    display: none;
+  }
+  html.hide-aside .layout > div:first-child {
+    width: 80%;
+  }
+}
+

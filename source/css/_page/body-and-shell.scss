@@ -1,0 +1,108 @@
+/* Body wrap, homepage cards, page flow | lines 2401-3415 */
+@use '../shared.scss' as shared;
+
+#body-wrap {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -o-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.layout {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: box;
+  display: flex;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -o-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1 auto;
+  -ms-flex: 1 auto;
+  flex: 1 auto;
+  margin: 0 auto;
+  padding: 40px 15px;
+  max-width: 1200px;
+  width: 100%;
+
+  @media screen and (max-width: shared.$sidebar-breakpoint) {
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -o-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+
+  @media screen and (max-width: shared.$mobile-breakpoint) {
+    padding: 20px 5px;
+  }
+
+  @media screen and (min-width: shared.$wide-breakpoint) {
+    max-width: 60%;
+  }
+
+  > div:first-child {
+    width: 74%;
+    -webkit-transition: all shared.$transition-default;
+    -moz-transition: all shared.$transition-default;
+    -o-transition: all shared.$transition-default;
+    -ms-transition: all shared.$transition-default;
+    transition: all shared.$transition-default;
+
+    @media screen and (max-width: shared.$sidebar-breakpoint) {
+      width: 100% !important;
+    }
+
+    &:not(.nc) {
+      -webkit-align-self: flex-start;
+      align-self: flex-start;
+      -ms-flex-item-align: start;
+      padding: 50px 40px;
+
+      @media screen and (max-width: shared.$mobile-breakpoint) {
+        padding: 36px 14px;
+      }
+    }
+  }
+
+  &.hide-aside {
+    max-width: 1000px;
+
+    @media screen and (min-width: shared.$wide-breakpoint) {
+      max-width: 1300px;
+    }
+
+    > div {
+      width: 100% !important;
+    }
+  }
+}
+
+.apple {
+  #page-header.full_page {
+    background-attachment: scroll !important;
+  }
+
+  .recent-post-item,
+  .avatar-img,
+  .flink-item-icon {
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}
+

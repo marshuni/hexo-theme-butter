@@ -1,0 +1,27 @@
+.hl-label {
+  padding: 2px 4px;
+  color: var(--btn-color, #fff);
+  border-radius: 3px;
+}
+.hl-label.default {
+  background-color: var(--btn-default-color);
+}
+.hl-label.blue {
+  background-color: var(--tags-blue-color);
+}
+.hl-label.pink {
+  background-color: var(--tags-pink-color);
+}
+.hl-label.red {
+  background-color: var(--tags-red-color);
+}
+.hl-label.purple {
+  background-color: var(--tags-purple-color);
+}
+.hl-label.orange {
+  background-color: var(--tags-orange-color);
+}
+.hl-label.green {
+  background-color: var(--tags-green-color);
+}
+
