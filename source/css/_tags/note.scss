@@ -1,5 +1,5 @@
 @use 'sass:map';
-@use '../shared.scss' as shared;
+@use '../_shared.scss' as shared;
 
 $note-accent-variants: (
   'blue': (

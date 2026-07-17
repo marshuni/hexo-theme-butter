@@ -1,5 +1,3 @@
-@use './normalize-loader.scss' as normalizeLoader;
-@use 'shared.scss' as *;
 @use './_global/global.scss' as globalStyles;
 @use './_view/view.scss' as layoutStyles;
 @use './_highlight/highlight.scss' as highlightStyles;
