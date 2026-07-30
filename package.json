@@ -1,7 +1,7 @@
 {
-  "name": "hexo-theme-butterfly",
-  "version": "5.5.4",
-  "description": "A Simple and Card UI Design theme for Hexo",
+  "name": "hexo-theme-butter",
+  "version": "0.0.2",
+  "description": "A Simple and Card UI Design theme for Hexo, forked and enhanced from the Butterfly theme.",
   "main": "package.json",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,24 +9,22 @@
   "keywords": [
     "hexo",
     "theme",
-    "butterfly",
+    "butter",
     "Card UI Design",
-    "Jerry",
-    "hexo-theme-butterfly"
+    "hexo-theme-butter"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/jerryc127/hexo-theme-butterfly.git"
+    "url": "https://github.com/marshuni/hexo-theme-butter.git"
   },
   "bugs": {
-    "url": "https://github.com/jerryc127/hexo-theme-butterfly/issues",
-    "email": "my@crazywong.com"
+    "url": "https://github.com/marshuni/hexo-theme-butter/issues",
+    "email": "marshuni04@outlook.com"
   },
   "dependencies": {
     "hexo-renderer-pug": "^3.0.0",
     "hexo-util": "^4.0.0"
   },
-  "homepage": "https://butterfly.js.org/",
-  "author": "Jerry <my@crazywong.com>",
+  "author": "Marshuni <marshuni04@outlook.com>",
   "license": "Apache-2.0"
 }
