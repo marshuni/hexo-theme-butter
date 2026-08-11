@@ -265,29 +265,6 @@ module.exports = {
       copy_tex: false
     }
   },
-  search: {
-    use: null,
-    placeholder: null,
-    algolia_search: {
-      hitsPerPage: 6
-    },
-    local_search: {
-      preload: false,
-      top_n_per_article: 1,
-      unescape: false,
-      pagination: {
-        enable: false,
-        hitsPerPage: 8
-      },
-      CDN: null
-    },
-    docsearch: {
-      appId: null,
-      apiKey: null,
-      indexName: null,
-      option: null
-    }
-  },
   share: {
     use: 'sharejs',
     sharejs: {

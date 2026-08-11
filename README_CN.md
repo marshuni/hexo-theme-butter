@@ -88,11 +88,6 @@ npm install hexo-renderer-pug hexo-renderer-stylus --save
 - [x] **簡繁轉換** - 支援繁體中文和簡體中文切換
 - [x] **標籤外掛** - 豐富的標籤外掛支持
 
-### 🔍 搜尋與導航
-- [x] **多種搜尋** - Algolia 搜尋 / 本地搜尋 / Docsearch
-- [x] **內建 404** - 美觀的 404 錯誤頁面
-- [x] **Pjax 支援** - 流暢的頁面切換體驗
-
 ### 🎨 程式碼展示
 - [x] **語法高亮** - 內建多種主題（darker/pale night/light/ocean）
 - [x] **程式碼功能** - 語言顯示/摺疊展開/複製按鈕/自動換行

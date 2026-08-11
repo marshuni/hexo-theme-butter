@@ -88,11 +88,6 @@ npm install hexo-renderer-pug hexo-renderer-stylus --save
 - [x] **Traditional/Simplified Chinese** - Support for Traditional and Simplified Chinese switching
 - [x] **Tag Plugins** - Rich tag plugin support
 
-### 🔍 Search & Navigation
-- [x] **Multiple Search Options** - Algolia Search / Local Search / Docsearch
-- [x] **Built-in 404** - Beautiful 404 error page
-- [x] **Pjax Support** - Smooth page transition experience
-
 ### 🎨 Code Display
 - [x] **Syntax Highlighting** - Built-in multiple themes (darker/pale night/light/ocean)
 - [x] **Code Features** - Language display/fold expand/copy button/auto-wrap
