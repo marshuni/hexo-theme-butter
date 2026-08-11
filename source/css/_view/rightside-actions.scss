@@ -1,181 +1,84 @@
-/* Right-side actions, sidebar menus, loading styles | lines 5227-6357 */
+@use '../_shared.scss' as shared;
+
+/* Right-side floating actions */
 #rightside {
   position: fixed;
   right: -48px;
   bottom: 40px;
   z-index: 100;
   opacity: 0;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-  filter: alpha(opacity=0);
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  -ms-transition: all 0.5s;
   transition: all 0.5s;
-}
-#rightside.rightside-show {
-  opacity: 0.8;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
-  filter: alpha(opacity=80);
-  -webkit-transform: translate(-58px, 0);
-  -moz-transform: translate(-58px, 0);
-  -o-transform: translate(-58px, 0);
-  -ms-transform: translate(-58px, 0);
-  transform: translate(-58px, 0);
-}
-#rightside #rightside-config-hide {
-  height: 0;
-  opacity: 0;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-  filter: alpha(opacity=0);
-  -webkit-transition: -webkit-transform 0.4s;
-  -moz-transition: -moz-transform 0.4s;
-  -o-transition: -o-transform 0.4s;
-  -ms-transition: -ms-transform 0.4s;
-  transition: transform 0.4s;
-  -webkit-transform: translate(45px, 0);
-  -moz-transform: translate(45px, 0);
-  -o-transform: translate(45px, 0);
-  -ms-transform: translate(45px, 0);
-  transform: translate(45px, 0);
-}
-#rightside #rightside-config-hide.show {
-  height: auto;
-  opacity: 1;
-  -ms-filter: none;
-  filter: none;
-  -webkit-transform: translate(0, 0);
-  -moz-transform: translate(0, 0);
-  -o-transform: translate(0, 0);
-  -ms-transform: translate(0, 0);
-  transform: translate(0, 0);
-}
-#rightside #rightside-config-hide.status {
-  height: auto;
-  opacity: 1;
-  -ms-filter: none;
-  filter: none;
-}
-#rightside > div > button,
-#rightside > div > a {
-  display: block;
-  margin-bottom: 5px;
-  width: 35px;
-  height: 35px;
-  background-color: var(--btn-bg);
-  color: var(--btn-color);
-  text-align: center;
-  font-size: 16px;
-  line-height: 35px;
-  border-radius: 5px;
-}
-#rightside > div > button:hover,
-#rightside > div > a:hover {
-  background-color: var(--btn-hover-color);
-}
-#rightside > div > button i,
-#rightside > div > a i {
-  vertical-align: baseline;
-}
-#rightside #mobile-toc-button {
-  display: none;
-}
-@media screen and (max-width: 900px) {
-  #rightside #mobile-toc-button {
-    display: block;
+
+  &.rightside-show {
+    opacity: 0.8;
+    transform: translate(-58px, 0);
   }
-}
-@media screen and (max-width: 900px) {
-  #rightside #hide-aside-btn {
+
+  #rightside-config-hide {
+    height: 0;
+    opacity: 0;
+    transition: transform 0.4s;
+    transform: translate(45px, 0);
+
+    &.show {
+      height: auto;
+      opacity: 1;
+      transform: translate(0, 0);
+    }
+
+    &.status {
+      height: auto;
+      opacity: 1;
+    }
+  }
+
+  > div {
+    > button,
+    > a {
+      display: block;
+      margin-bottom: 5px;
+      width: 35px;
+      height: 35px;
+      background-color: var(--btn-bg);
+      color: var(--btn-color);
+      text-align: center;
+      font-size: 16px;
+      line-height: 35px;
+      border-radius: 5px;
+
+      &:hover {
+        background-color: var(--btn-hover-color);
+      }
+
+      i {
+        vertical-align: baseline;
+      }
+    }
+  }
+
+  #mobile-toc-button {
     display: none;
+
+    @media screen and (max-width: shared.$sidebar-breakpoint) {
+      display: block;
+    }
   }
-}
-@-moz-keyframes fadeInScale {
-  from {
-    opacity: 0;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-    filter: alpha(opacity=0);
-    -webkit-transform: scale(0.8);
-    -moz-transform: scale(0.8);
-    -o-transform: scale(0.8);
-    -ms-transform: scale(0.8);
-    transform: scale(0.8);
-  }
-  to {
-    opacity: 1;
-    -ms-filter: none;
-    filter: none;
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    -o-transform: scale(1);
-    -ms-transform: scale(1);
-    transform: scale(1);
-  }
-}
-@-webkit-keyframes fadeInScale {
-  from {
-    opacity: 0;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-    filter: alpha(opacity=0);
-    -webkit-transform: scale(0.8);
-    -moz-transform: scale(0.8);
-    -o-transform: scale(0.8);
-    -ms-transform: scale(0.8);
-    transform: scale(0.8);
-  }
-  to {
-    opacity: 1;
-    -ms-filter: none;
-    filter: none;
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    -o-transform: scale(1);
-    -ms-transform: scale(1);
-    transform: scale(1);
-  }
-}
-@-o-keyframes fadeInScale {
-  from {
-    opacity: 0;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-    filter: alpha(opacity=0);
-    -webkit-transform: scale(0.8);
-    -moz-transform: scale(0.8);
-    -o-transform: scale(0.8);
-    -ms-transform: scale(0.8);
-    transform: scale(0.8);
-  }
-  to {
-    opacity: 1;
-    -ms-filter: none;
-    filter: none;
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    -o-transform: scale(1);
-    -ms-transform: scale(1);
-    transform: scale(1);
-  }
-}
-@keyframes fadeInScale {
-  from {
-    opacity: 0;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-    filter: alpha(opacity=0);
-    -webkit-transform: scale(0.8);
-    -moz-transform: scale(0.8);
-    -o-transform: scale(0.8);
-    -ms-transform: scale(0.8);
-    transform: scale(0.8);
-  }
-  to {
-    opacity: 1;
-    -ms-filter: none;
-    filter: none;
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    -o-transform: scale(1);
-    -ms-transform: scale(1);
-    transform: scale(1);
+
+  #hide-aside-btn {
+    @media screen and (max-width: shared.$sidebar-breakpoint) {
+      display: none;
+    }
   }
 }
 
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

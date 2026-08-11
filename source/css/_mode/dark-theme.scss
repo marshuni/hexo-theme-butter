@@ -101,7 +101,6 @@
     }
 
     figure.highlight {
-      -webkit-box-shadow: none;
       box-shadow: none;
     }
 
@@ -128,7 +127,6 @@
     &.nav-fixed > #nav,
     &.not-top-img > #nav {
       background: rgba(18,18,18,0.8);
-      -webkit-box-shadow: 0 5px 6px -5px rgba(133,133,133,0);
       box-shadow: 0 5px 6px -5px rgba(133,133,133,0);
     }
   }

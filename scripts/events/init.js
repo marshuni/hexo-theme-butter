@@ -20,15 +20,6 @@ function checkHexoEnvironment (hexo) {
     throw new Error('Hexo version too old')
   }
 
-  // Check for deprecated configuration file
-  if (locals.get) {
-    const data = locals.get('data')
-    if (data && data.butterfly) {
-      log.error("'butterfly.yml' is deprecated. Please use '_config.butterfly.yml'")
-      log.error("'butterfly.yml' 已經棄用，請使用 '_config.butterfly.yml'")
-      throw new Error('Deprecated configuration file')
-    }
-  }
 }
 
 /**
@@ -65,13 +56,6 @@ function processCommentConfig (themeConfig) {
       return item.trim().toLowerCase().replace(/\b[a-z]/g, s => s.toUpperCase())
     })
     .filter(Boolean)
-
-  // Handle Disqus and Disqusjs conflict
-  if (use.includes('Disqus') && use.includes('Disqusjs')) {
-    hexo.log.warn('Disqus and Disqusjs conflict detected, keeping only the first one')
-    hexo.log.warn('檢測到 Disqus 和 Disqusjs 衝突，只保留第一個')
-    use = [use[0]]
-  }
 
   themeConfig.comments.use = use
 }
