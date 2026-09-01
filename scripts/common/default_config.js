@@ -20,9 +20,9 @@ module.exports = {
     fullpage: false
   },
   social: null,
-  favicon: '/img/favicon.png',
+  favicon: '/assets/favicon.png',
   avatar: {
-    img: '/img/butterfly-icon.png',
+    img: '/assets/butterfly-icon.png',
     effect: false
   },
   disable_top_img: false,
@@ -42,13 +42,13 @@ module.exports = {
     default_cover: null
   },
   error_img: {
-    flink: '/img/friend_404.gif',
-    post_page: '/img/404.jpg'
+    flink: '/assets/friend_404.gif',
+    post_page: '/assets/404.jpg'
   },
   error_404: {
     enable: false,
     subtitle: 'Page Not Found',
-    background: '/img/error-page.png'
+    background: '/assets/error-page.png'
   },
   post_meta: {
     page: {
