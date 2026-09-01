@@ -24,12 +24,11 @@
 }
 #page-header.full_page #site-info {
   position: absolute;
-  top: 43%;
+  top: 28%;
   padding: 0 10px;
   width: 100%;
 }
 #page-header #site-title,
-#page-header #site-subtitle,
 #page-header #scroll-down .scroll-down-effects {
   text-align: center;
   text-shadow: 2px 2px 4px rgba(0,0,0,0.15);
@@ -46,18 +45,22 @@
     font-size: 2.85em;
   }
 }
-#page-header #site-subtitle {
-  color: var(--light-grey);
-  font-size: 1.15em;
+#page-header #site-title-svg {
+  display: block;
+  margin: 0 auto;
+  width: auto;
+  max-width: 90%;
+  height: 300px;
 }
 @media screen and (min-width: 768px) {
-  #page-header #site-subtitle {
-    font-size: 1.72em;
+  #page-header #site-title-svg {
+    height: 360px;
   }
 }
 #page-header #site_social_icons {
   display: none;
   margin: 0 auto;
+  margin-top: 20x;
   text-align: center;
 }
 @media screen and (max-width: 768px) {
@@ -66,10 +69,10 @@
   }
 }
 #page-header #site_social_icons .social-icon {
-  margin: 0 10px;
+  margin: 0 8px;
   color: var(--light-grey);
   text-shadow: 2px 2px 4px rgba(0,0,0,0.15);
-  font-size: 1.43em;
+  font-size: 1em;
 }
 #page-header #scroll-down {
   position: absolute;
