@@ -413,11 +413,6 @@ module.exports = {
     header: true,
     footer: true
   },
-  preloader: {
-    enable: false,
-    source: 1,
-    pace_css_url: null
-  },
   enter_transitions: true,
   display_mode: 'light',
   beautify: {
