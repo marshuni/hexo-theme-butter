@@ -1,0 +1,6 @@
+include ../../sections/listing/article-sort.pug
+
+#archive
+  .article-sort-title= `${_p('page.articles')} - ${getArchiveLength()}`
+  +articleSort(page.posts)
+  include ../../components/listing/pagination-list.pug

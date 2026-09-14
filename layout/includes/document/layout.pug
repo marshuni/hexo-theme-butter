@@ -1,9 +1,38 @@
-- var globalPageType = getPageType(page, is_home)
+-
+  var pageContext = {
+    meta: {
+      title: page.title || config.title || '',
+      pageType: 'page',
+      isHome: false,
+      isPost: false,
+      ogType: 'website',
+      contentPage: false,
+      bodyClass: 'page'
+    },
+    header: {
+      topImage: false,
+      className: 'not-top-img',
+      variant: 'page',
+      hasImage: false,
+      background: ''
+    },
+    runtime: {
+      showToc: false,
+      commentsJsLoad: false,
+      needLoadCountJs: false
+    },
+    rightside: {
+      readmode: false
+    },
+    sidebar: {
+      variant: 'page'
+    }
+  }
 - var htmlClassHideAside = theme.aside.enable && theme.aside.hide ? 'hide-aside' : ''
-- page.aside = globalPageType === 'archive' ? theme.aside.display.archive: globalPageType === 'category' ? theme.aside.display.category : globalPageType === 'tag' ? theme.aside.display.tag : page.aside
+
+block page-context
+
 - var hideAside = !theme.aside.enable || page.aside === false ? 'hide-aside' : ''
-- var pageType = globalPageType === 'post' ? 'post' : 'page'
-- pageType = page.type ? pageType + ' type-' + page.type : pageType
 
 doctype html
 html(lang=config.language data-theme=theme.display_mode class=htmlClassHideAside)
@@ -38,19 +67,19 @@ html(lang=config.language data-theme=theme.display_mode class=htmlClassHideAside
 
     !=partial('includes/document/sidebar', {}, {cache: true})
 
-    #body-wrap(class=pageType)
-      include ./header.pug
+    #body-wrap(class=pageContext.meta.bodyClass)
+      block page-header
 
       main#content-inner.layout(class=hideAside)
         if body
           div!= body
         else
-          block content
+          block page-content
           if theme.aside.enable && page.aside !== false
-            include ../components/widgets/index.pug
+            block page-sidebar
 
       - const footerBg = theme.footer_img
-      - const footer_bg = footerBg ? footerBg === true ? bg_img : getBgPath(footerBg) : ''
+      - const footer_bg = footerBg ? footerBg === true ? pageContext.header.background : getBgPath(footerBg) : ''
       footer#footer(style=footer_bg)
         !=partial('includes/document/footer', {}, {cache: true})
 

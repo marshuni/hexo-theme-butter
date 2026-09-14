@@ -1,0 +1,12 @@
+include ../../document/header.pug
+
++pageHeader({
+  className: pageContext.header.className,
+  background: pageContext.header.background,
+  displayPostTitle: false
+})
+  if pageContext.header.hasImage
+    #page-site-info
+      h1#site-title=page.title || page.tag || page.category
+  else
+    h1.title-seo=page.title || page.tag || page.category || config.title

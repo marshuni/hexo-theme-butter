@@ -1,8 +1,47 @@
 extends includes/document/layout.pug
 
-block content
-  include ./includes/sections/listing/article-sort.pug
-  #archive
-    .article-sort-title= `${_p('page.articles')} - ${getArchiveLength()}`
-    +articleSort(page.posts)
-    include includes/sections/listing/pagination.pug
+block page-context
+  -
+    const returnTopImg = img => img !== false ? img || theme.default_top_img : false
+    const topImageEnabled = !theme.disable_top_img && page.top_img !== false
+    const topImage = topImageEnabled ? returnTopImg(theme.archive_img) : false
+    page.aside = theme.aside.display.archive
+    page.title = findArchivesTitle(page, theme.menu, date)
+    pageContext = {
+      meta: {
+        title: page.title || _p('page.archives'),
+        pageType: 'archive',
+        isHome: false,
+        isPost: false,
+        ogType: 'website',
+        contentPage: false,
+        bodyClass: page.type ? 'page type-' + page.type : 'page'
+      },
+      header: {
+        variant: 'listing',
+        topImage,
+        className: topImage !== false ? 'not-home-page' : 'not-top-img',
+        hasImage: topImage !== false,
+        background: topImage !== false ? getBgPath(topImage) : ''
+      },
+      runtime: {
+        showToc: false,
+        commentsJsLoad: false,
+        needLoadCountJs: false
+      },
+      rightside: {
+        readmode: false
+      },
+      sidebar: {
+        variant: 'page'
+      }
+    }
+
+block page-header
+  include ./includes/pages/listing/header.pug
+
+block page-content
+  include ./includes/pages/listing/archive.pug
+
+block page-sidebar
+  include ./includes/components/widgets/sidebar-page.pug

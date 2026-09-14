@@ -1,0 +1,26 @@
+- const noCardLayout = ['404'].includes(page.type) ? 'nc' : ''
+
+mixin commentLoad
+  if page.comments !== false && theme.comments.use
+    - pageContext.runtime.commentsJsLoad = true
+    !=partial('includes/integrations/comments/index', {}, {cache: true})
+
+#page(class=noCardLayout)
+  if pageContext.header.topImage === false && page.title
+    .page-title= page.title
+
+  case page.type
+    when 'tags'
+      include ../../sections/page/tags.pug
+      +commentLoad
+    when 'link'
+      include ../../sections/page/friend-links.pug
+      +commentLoad
+    when 'categories'
+      include ../../sections/page/categories.pug
+      +commentLoad
+    when '404'
+      include ../../sections/page/404.pug
+    default
+      include ../../sections/page/default-page.pug
+      +commentLoad

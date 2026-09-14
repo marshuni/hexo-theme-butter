@@ -1,0 +1,17 @@
+include ../../document/header.pug
+
++pageHeader({
+  className: pageContext.header.className,
+  background: pageContext.header.background,
+  displayPostTitle: false
+})
+  if pageContext.header.hasImage
+    #site-info
+      img#site-title-svg(src=url_for('/assets/title.svg') alt=config.title)
+      if theme.social
+        #site_social_icons
+          !=partial('includes/components/social-links', {}, {cache: true})
+    #scroll-down
+      i.fas.fa-angle-down.scroll-down-effects
+  else
+    h1.title-seo=page.title || page.tag || page.category || config.title

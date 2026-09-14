@@ -1,8 +1,8 @@
-if needLoadCountJs
+if pageContext.runtime.needLoadCountJs
   != partial("includes/integrations/card-post-count/index", {}, { cache: true })
 
 include ../integrations/math/index.pug
 include ../integrations/media/abcjs/index.pug
 
-if commentsJsLoad
+if pageContext.runtime.commentsJsLoad
   include ../integrations/comments/js.pug

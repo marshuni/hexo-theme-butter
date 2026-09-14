@@ -1,30 +1,52 @@
 extends includes/document/layout.pug
 
-block content
-  - const noCardLayout = ['404'].includes(page.type) ? 'nc' : ''
-  - var commentsJsLoad = false
+block page-context
+  -
+    const pageType = ['tags', 'categories'].includes(page.type) ? page.type : 'page'
+    const topImageEnabled = page.type !== '404' && !theme.disable_top_img && page.top_img !== false
+    const topImage = topImageEnabled ? page.top_img || theme.default_top_img : false
+    const tocEnable = theme.aside.enable && page.aside !== false && pageType === 'page' && theme.toc.page
+    const pageToc = typeof page.toc === 'boolean' ? page.toc : tocEnable
+    const showToc = pageToc && (toc(page.content) !== '' || page.encrypt === true)
+    let resolvedTitle = page.title || config.title || ''
+    if (page.type === 'tags') resolvedTitle = page.title || _p('page.tags')
+    if (page.type === 'categories') resolvedTitle = page.title || _p('page.categories')
+    if (page.type === '404') resolvedTitle = _p('error404')
+    pageContext = {
+      meta: {
+        title: resolvedTitle,
+        pageType,
+        isHome: false,
+        isPost: false,
+        ogType: 'website',
+        contentPage: pageType === 'page',
+        bodyClass: page.type ? 'page type-' + page.type : 'page'
+      },
+      header: {
+        variant: 'page',
+        topImage,
+        className: topImage !== false ? 'not-home-page' : 'not-top-img',
+        hasImage: topImage !== false,
+        background: topImage !== false ? getBgPath(topImage) : ''
+      },
+      runtime: {
+        showToc,
+        commentsJsLoad: false,
+        needLoadCountJs: false
+      },
+      rightside: {
+        readmode: false
+      },
+      sidebar: {
+        variant: 'page'
+      }
+    }
 
-  mixin commentLoad
-    if page.comments !== false && theme.comments.use
-      - commentsJsLoad = true
-      !=partial('includes/integrations/comments/index', {}, {cache: true})
+block page-header
+  include ./includes/pages/page/header.pug
 
-  #page(class=noCardLayout)
-    if top_img === false && page.title
-      .page-title= page.title
+block page-content
+  include ./includes/pages/page/content.pug
 
-    case page.type
-      when 'tags'
-        include includes/sections/page/tags.pug
-        +commentLoad
-      when 'link'
-        include includes/sections/page/friend-links.pug
-        +commentLoad
-      when 'categories'
-        include includes/sections/page/categories.pug
-        +commentLoad
-      when '404'
-        include includes/sections/page/404.pug
-      default
-        include includes/sections/page/default-page.pug
-        +commentLoad
+block page-sidebar
+  include ./includes/components/widgets/sidebar-page.pug

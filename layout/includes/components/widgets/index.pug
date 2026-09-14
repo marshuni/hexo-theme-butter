@@ -1,36 +1,5 @@
-#aside-content.aside-content
-  //- post
-  if globalPageType === 'post'
-    - const tocStyle = page.toc_style_simple
-    - const tocStyleVal = tocStyle === true || tocStyle === false ? tocStyle : theme.toc.style_simple
-    if showToc && tocStyleVal
-      .sticky_layout
-        include ./cards/post-toc.pug
-    else
-      !=partial('includes/components/widgets/cards/author', {}, {cache: true})
-      !=partial('includes/components/widgets/cards/announcement', {}, {cache: true})
-      !=partial('includes/components/widgets/cards/top-self', {}, {cache: true})
-      .sticky_layout
-        if showToc
-          include ./cards/post-toc.pug
-        if page.series
-          include ./cards/post-series.pug
-        !=partial('includes/components/widgets/cards/recent-post', {}, {cache: true})
-        !=partial('includes/components/widgets/cards/ad', {}, {cache: true})
-  else
-    //- page
-    !=partial('includes/components/widgets/cards/author', {}, {cache: true})
-    !=partial('includes/components/widgets/cards/announcement', {}, {cache: true})
-    !=partial('includes/components/widgets/cards/top-self', {}, {cache: true})
-
-    .sticky_layout
-      if showToc
-        include ./cards/post-toc.pug
-      !=partial('includes/components/widgets/cards/recent-post', {}, {cache: true})
-      !=partial('includes/components/widgets/cards/ad', {}, {cache: true})
-      !=partial('includes/components/widgets/cards/newest-comment', {}, {cache: true})
-      !=partial('includes/components/widgets/cards/categories', {}, {cache: true})
-      !=partial('includes/components/widgets/cards/tags', {}, {cache: true})
-      !=partial('includes/components/widgets/cards/archives', {}, {cache: true})
-      !=partial('includes/components/widgets/cards/webinfo', {}, {cache: true})
-      !=partial('includes/components/widgets/cards/bottom-self', {}, {cache: true})
+//- Compatibility entry point. Page layouts select a sidebar explicitly.
+if pageContext.sidebar.variant === 'post'
+  include ./sidebar-post.pug
+else
+  include ./sidebar-page.pug

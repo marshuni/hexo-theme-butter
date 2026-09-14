@@ -1,0 +1,17 @@
+#aside-content.aside-content
+  - const tocStyle = page.toc_style_simple
+  - const tocStyleVal = tocStyle === true || tocStyle === false ? tocStyle : theme.toc.style_simple
+  if pageContext.runtime.showToc && tocStyleVal
+    .sticky_layout
+      include ./cards/post-toc.pug
+  else
+    !=partial('includes/components/widgets/cards/author', {}, {cache: true})
+    !=partial('includes/components/widgets/cards/announcement', {}, {cache: true})
+    !=partial('includes/components/widgets/cards/top-self', {}, {cache: true})
+    .sticky_layout
+      if pageContext.runtime.showToc
+        include ./cards/post-toc.pug
+      if page.series
+        include ./cards/post-series.pug
+      !=partial('includes/components/widgets/cards/recent-post', {}, {cache: true})
+      !=partial('includes/components/widgets/cards/ad', {}, {cache: true})

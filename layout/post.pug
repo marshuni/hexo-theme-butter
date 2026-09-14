@@ -1,35 +1,47 @@
 extends includes/document/layout.pug
 
-block content
-  #post
-    if top_img === false
-      include includes/sections/post/info.pug
+block page-context
+  -
+    const topImageEnabled = !theme.disable_top_img && page.top_img !== false
+    const topImage = topImageEnabled ? page.top_img || page.cover || theme.default_top_img : false
+    const tocEnable = theme.aside.enable && page.aside !== false && theme.toc.post
+    const pageToc = typeof page.toc === 'boolean' ? page.toc : tocEnable
+    const showToc = pageToc && (toc(page.content) !== '' || page.encrypt === true)
+    pageContext = {
+      meta: {
+        title: page.title || config.title || '',
+        pageType: 'post',
+        isHome: false,
+        isPost: true,
+        ogType: 'article',
+        contentPage: true,
+        bodyClass: 'post'
+      },
+      header: {
+        variant: 'post',
+        topImage,
+        className: topImage !== false ? 'post-bg' : 'not-top-img',
+        hasImage: topImage !== false,
+        background: topImage !== false ? getBgPath(topImage) : ''
+      },
+      runtime: {
+        showToc,
+        commentsJsLoad: false,
+        needLoadCountJs: false
+      },
+      rightside: {
+        readmode: true
+      },
+      sidebar: {
+        variant: 'post'
+      }
+    }
 
-    article#article-container.container.post-content
-      if theme.noticeOutdate.enable && page.noticeOutdate !== false
-        include includes/sections/post/outdate-notice.pug
-      else
-        !=page.content
-    include includes/sections/post/copyright.pug
-    .tag_share
-      if (page.tags.length > 0 && theme.post_meta.post.tags)
-        .post-meta__tag-list
-          each item, index in page.tags.data
-            a(href=url_for(item.path)).post-meta__tags #[=item.name]
-      include includes/integrations/sharing/index.pug
+block page-header
+  include ./includes/pages/post/header.pug
 
-    if theme.reward.enable && theme.reward.QR_code
-      !=partial('includes/sections/post/reward', {}, {cache: true})
+block page-content
+  include ./includes/pages/post/content.pug
 
-    //- ad
-    if theme.ad && theme.ad.post
-      .ads-wrap!=theme.ad.post
-
-    if theme.post_pagination
-      include includes/sections/listing/pagination.pug
-    if theme.related_post && theme.related_post.enable
-      != related_posts(page,site.posts)
-
-    if page.comments !== false && theme.comments.use
-      - var commentsJsLoad = true
-      !=partial('includes/integrations/comments/index', {}, {cache: true})
+block page-sidebar
+  include ./includes/components/widgets/sidebar-post.pug

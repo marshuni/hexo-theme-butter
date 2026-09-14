@@ -1,0 +1,9 @@
+include ../../document/header.pug
+
++pageHeader({
+  className: pageContext.header.className,
+  background: pageContext.header.background,
+  displayPostTitle: true
+})
+  if pageContext.header.hasImage
+    include ../../sections/post/info.pug

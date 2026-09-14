@@ -1,0 +1,15 @@
+if page.total !== 1
+  -
+    var options = {
+      prev_text: '<i class="fas fa-chevron-left fa-fw"></i>',
+      next_text: '<i class="fas fa-chevron-right fa-fw"></i>',
+      mid_size: 1,
+      escape: false
+    }
+
+  if pageContext.meta.isHome
+    - options.format = 'page/%d/#content-inner'
+
+  nav#pagination
+    .pagination
+      !=paginator(options)
