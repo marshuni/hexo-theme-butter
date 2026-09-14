@@ -1,4 +1,4 @@
-extends includes/layout.pug
+extends includes/document/layout.pug
 
 block content
   - const noCardLayout = ['404'].includes(page.type) ? 'nc' : ''
@@ -7,7 +7,7 @@ block content
   mixin commentLoad
     if page.comments !== false && theme.comments.use
       - commentsJsLoad = true
-      !=partial('includes/third-party/comments/index', {}, {cache: true})
+      !=partial('includes/integrations/comments/index', {}, {cache: true})
 
   #page(class=noCardLayout)
     if top_img === false && page.title
@@ -15,16 +15,16 @@ block content
 
     case page.type
       when 'tags'
-        include includes/page/tags.pug
+        include includes/sections/page/tags.pug
         +commentLoad
       when 'link'
-        include includes/page/flink.pug
+        include includes/sections/page/friend-links.pug
         +commentLoad
       when 'categories'
-        include includes/page/categories.pug
+        include includes/sections/page/categories.pug
         +commentLoad
       when '404'
-        include includes/page/404.pug
+        include includes/sections/page/404.pug
       default
-        include includes/page/default-page.pug
+        include includes/sections/page/default-page.pug
         +commentLoad

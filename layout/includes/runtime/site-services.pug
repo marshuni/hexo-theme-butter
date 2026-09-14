@@ -1,0 +1,27 @@
+!= partial("includes/integrations/syntax/prismjs", {}, { cache: true })
+
+if theme.aside.enable && theme.aside.card_newest_comments.enable
+  if theme.pjax.enable || (globalPageType !== 'post' && page.aside !== false)
+    != partial("includes/integrations/newest-comments/index", {}, { cache: true })
+
+!= fragment_cache('injectBottom', function(){return injectHtml(theme.inject.bottom)})
+
+!= partial("includes/integrations/effects", {}, { cache: true })
+!= partial("includes/integrations/chat/index", {}, { cache: true })
+
+if theme.aplayerInject && theme.aplayerInject.enable
+  if theme.pjax.enable || theme.aplayerInject.per_page || page.aplayer
+    include ../integrations/audio/aplayer.pug
+
+if theme.pjax.enable
+  != partial("includes/integrations/navigation/pjax", {}, { cache: true })
+
+if theme.umami_analytics.enable
+  != partial("includes/integrations/analytics/umami", {}, { cache: true })
+
+if theme.busuanzi.site_uv || theme.busuanzi.site_pv || theme.busuanzi.page_pv
+  script(async data-pjax src=theme.asset.busuanzi ? url_for(theme.asset.busuanzi) : '//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js')
+
+if theme.google_tag_manager && theme.google_tag_manager.tag_id
+  noscript
+    iframe(src=`${theme.google_tag_manager.domain ? theme.google_tag_manager.domain : 'https://www.googletagmanager.com'}/ns.html?id=${theme.google_tag_manager.tag_id}` height="0" width="0" style="display:none;visibility:hidden")

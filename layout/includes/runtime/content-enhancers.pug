@@ -1,0 +1,8 @@
+if needLoadCountJs
+  != partial("includes/integrations/card-post-count/index", {}, { cache: true })
+
+include ../integrations/math/index.pug
+include ../integrations/media/abcjs/index.pug
+
+if commentsJsLoad
+  include ../integrations/comments/js.pug

@@ -1,12 +1,12 @@
-extends includes/layout.pug
+extends includes/document/layout.pug
 
 block content
   if theme.category_ui == 'index'
-    include ./includes/mixins/indexPostUI.pug
+    include ./includes/sections/listing/recent-posts.pug
     +indexPostUI
   else
-    include ./includes/mixins/article-sort.pug
+    include ./includes/sections/listing/article-sort.pug
     #category
       .article-sort-title= _p('page.category') + ' - ' + page.category
       +articleSort(page.posts)
-      include includes/pagination.pug
+      include includes/sections/listing/pagination.pug
